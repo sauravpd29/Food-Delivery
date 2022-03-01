@@ -4,7 +4,7 @@
 ![plot](./Screenshots/Home.png)
 ### Register Page ###
 ![plot](./Screenshots/Register.png)
-### Login Page###
+### Login Page ###
 ![plot](./Screenshots/Login.png)
 ### Successful login alert ###
 ![plot](./Screenshots/SuccessLoginAlert.png)
