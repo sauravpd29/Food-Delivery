@@ -1,6 +1,6 @@
 # Food-Delivery
 
-##Home Page##
+## Home Page ##
 ![plot](./Screenshots/Home.png)
 ##Register Page##
 ![plot](./Screenshots/Register.png)
