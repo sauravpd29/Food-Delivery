@@ -112,6 +112,7 @@ export const deleteFood = (id) => async (dispatch) => {
     dispatch({ type: FOOD_DELETED });
     dispatch(setAlert("Food Removed", "success"));
   } catch (err) {
+    dispatch(setAlert(err.response.data.message, "danger"));
     dispatch({
       type: FOOD_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
