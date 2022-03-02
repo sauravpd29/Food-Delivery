@@ -28,89 +28,131 @@ export const UpdateFood = ({ food: { food }, updateFood }) => {
     );
   };
   return (
-    <div className="row">
-      <div className="col-3"></div>
-      <div className="col">
-        <h3>Edit food details</h3>
-        <form onSubmit={onSubmit}>
-          <div className="mb-3">
-            <label htmlFor="foodName" className="form-label">
-              Food name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="foodName"
-              name="foodName"
-              value={foodName}
-              onChange={onChange}
-              aria-describedby="foodNameHelp"
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="foodCost" className="form-label">
-              Food cost
-            </label>
-            <div className="input-group mb-3">
-              <span className="input-group-text">₹</span>
-              <input
-                type="number"
-                className="form-control"
-                id="foodCost"
-                name="foodCost"
-                value={foodCost}
-                onChange={onChange}
-                aria-label="Amount (to the nearest dollar)"
-              />
-              <span className="input-group-text">.00</span>
+
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black">
+            <div class="card-body p-md-0">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                    Update Food
+                  </p>
+
+                  <form class="mx-1 mx-md-4" onSubmit={onSubmit}>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-pizza-slice"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="foodName"
+                          name="foodName"
+                          value={foodName}
+                          placeholder="Name of Food"
+                          onChange={onChange}
+                          aria-describedby="foodNameHelp"
+                        />
+                        <label class="form-label">Food Name</label>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa fa-rupee-sign"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input
+                          type="number"
+                          className="form-control form-control-lg"
+                          id="foodCost"
+                          value={foodCost}
+                          name="foodCost"
+                          placeholder="Cost of Food"
+                          onChange={onChange}
+                          aria-label="Amount (to the nearest rupees)"
+                        />
+                        <label class="form-label">Food Cost</label>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa fa-info"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label htmlFor="foodDesc" className="form-label">
+                          Description
+                        </label>
+                        <textarea
+                          className="form-control form-control-lg"
+                          id="description"
+                          name="description"
+                          placeholder="Description"
+                          value={description}
+                          onChange={onChange}
+                          aria-describedby="foodDescHelp"
+                        ></textarea>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa fa-link"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label htmlFor="foodPic" className="form-label">
+                          URL of Food Picture
+                        </label>
+                        <input
+                          type="web"
+                          className="form-control form-control-lg"
+                          id="foodPic"
+                          name="foodPic"
+                          value={foodPic}
+                          placeholder="URL of Food Image"
+                          onChange={onChange}
+                          aria-describedby="foodPicHelp"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fa fa-filter"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <label htmlFor="foodType" className="form-label">
+                          Food Type
+                        </label>
+                        <select
+                          className="form-select"
+                          onChange={onChange}
+                          name="foodType"
+                          value={foodType}
+                        >
+                          <option value="DEFAULT"></option>
+                          <option>INDIAN</option>
+                          <option>CHINESE</option>
+                          <option>MEXICAN</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <input
+                        type="submit"
+                        className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-4"
+                        value="   Update   "
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                  <img
+                    src="https://wallpaperaccess.com/full/6221127.jpg"
+                    class="img-fluid"
+                    alt="Sample image"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="foodDesc" className="form-label">
-              Food description
-            </label>
-            <textarea
-              className="form-control"
-              id="description"
-              name="description"
-              value={description}
-              onChange={onChange}
-              aria-describedby="foodDescHelp"
-            ></textarea>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="foodPic" className="form-label">
-              Food picture URL
-            </label>
-            <input
-              type="web"
-              className="form-control"
-              id="foodPic"
-              name="foodPic"
-              value={foodPic}
-              onChange={onChange}
-              aria-describedby="foodPicHelp"
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="foodPic" className="form-label">
-              Food type
-            </label>
-            <select className="form-select" name="foodType" onChange={onChange} value={foodType}>
-              <option value="DEFAULT"></option>
-              <option>INDIAN</option>
-              <option>CHINESE</option>
-              <option>MEXICAN</option>
-            </select>
-          </div>
-          <input
-            type="submit"
-            className="col-12 btn btn-primary"
-            value="Update food details"
-          />
-        </form>
+        </div>
       </div>
-      <div className="col-3"></div>
     </div>
   );
 };
