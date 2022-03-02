@@ -15,7 +15,7 @@ const Register = ({ isAuthenticated, register }) => {
     street: "",
     city: "",
     state: "",
-    // role: [],
+    role: [],
   });
   const [error, setError] = useState({});
 
@@ -28,10 +28,10 @@ const Register = ({ isAuthenticated, register }) => {
     street,
     city,
     state,
-    // roleuser,
+    roleuser,
   } = formData;
   var address = Housenumber + street + city + state;
-  // var role = [roleuser];
+
   const onChange = (e) => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -41,25 +41,13 @@ const Register = ({ isAuthenticated, register }) => {
     console.log("hello from register");
     console.log(JSON.stringify(formData));
 
-    const houseno = document.getElementById("Housenumber");
-    const street = document.getElementById("street");
-    const city = document.getElementById("city");
-    const state = document.getElementById("state");
+    var address = Housenumber + ", " + street + ", " + city + ", " + state;
 
-    var address =
-      houseno.value +
-      ", " +
-      street.value +
-      ", " +
-      city.value +
-      ", " +
-      state.value;
-
-    // const roleuser = document.getElementById("roleuser");
-    // var role = [roleuser.value.split(",")];
+    var role = roleuser.split(",");
+    role.forEach((e) => console.log(e));
     if (password !== password2) {
     } else {
-      register({ username, email, password, address });
+      register({ username, email, password, address, role });
     }
   };
   if (isAuthenticated) {
@@ -94,6 +82,7 @@ const Register = ({ isAuthenticated, register }) => {
                         <div>{error.name}</div>
                       </div>
                     </div>
+                 
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -109,6 +98,22 @@ const Register = ({ isAuthenticated, register }) => {
                         />
                         <label class="form-label">Your Email</label>
                         <div>{error.email}</div>
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="far fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input
+                          type="text"
+                          id="form3Example2c"
+                          class="form-control"
+                          placeholder="roleuser"
+                          name="roleuser"
+                          onChange={onChange}
+                          required
+                        />
+                        <label class="form-label">Your Role</label>
                       </div>
                     </div>
 
